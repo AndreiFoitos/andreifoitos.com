@@ -1,3 +1,5 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import Experience from "@/components/sections/Experience";
@@ -7,13 +9,17 @@ import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="px-6 md:px-12 lg:px-24">
-      <Hero />
-      <FeaturedProjects />
-      <Experience />
-      <Skills />
-      <Achievements />
-      <Contact />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <FeaturedProjects />
+        <Experience />
+        <Skills />
+        <Achievements />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
