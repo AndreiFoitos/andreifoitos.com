@@ -1,4 +1,5 @@
 type Props = {
+  index: number;
   title: string;
   description: string;
   outcome: string;
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export default function ProjectCard({
+  index,
   title,
   description,
   outcome,
@@ -25,59 +27,51 @@ export default function ProjectCard({
       {...linkProps}
       style={{
         display: "block",
-        padding: "1.75rem",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius)",
+        padding: "2rem",
         background: "var(--bg)",
         cursor: link ? "pointer" : "default",
         textDecoration: "none",
-        transition: "border-color 200ms ease, background 200ms ease",
+        transition: "background 200ms ease",
+        height: "100%",
       }}
       onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = "var(--muted)";
-        el.style.background = "var(--surface)";
+        (e.currentTarget as HTMLElement).style.background = "var(--surface)";
       }}
       onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = "var(--border)";
-        el.style.background = "var(--bg)";
+        (e.currentTarget as HTMLElement).style.background = "var(--bg)";
       }}
     >
-      {/* Header row */}
+      {/* Index + grade */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "flex-start",
-          gap: "1rem",
-          marginBottom: "1rem",
+          alignItems: "center",
+          marginBottom: "1.5rem",
         }}
       >
-        <h3
+        <span
           style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "1.125rem",
-            fontWeight: 400,
-            letterSpacing: "-0.01em",
-            color: "var(--text)",
-            lineHeight: 1.3,
+            fontSize: "0.6875rem",
+            fontWeight: 500,
+            color: "var(--muted)",
+            letterSpacing: "0.1em",
+            fontFamily: "var(--font-sans)",
           }}
         >
-          {title}
-        </h3>
+          {String(index).padStart(2, "0")}
+        </span>
 
         {grade && (
           <span
             style={{
-              flexShrink: 0,
-              fontSize: "0.75rem",
+              fontSize: "0.6875rem",
               fontWeight: 500,
               color: "var(--muted)",
+              letterSpacing: "0.06em",
               border: "1px solid var(--border)",
               padding: "0.2rem 0.5rem",
               borderRadius: "2px",
-              letterSpacing: "0.04em",
             }}
           >
             {grade}
@@ -85,13 +79,28 @@ export default function ProjectCard({
         )}
       </div>
 
+      {/* Title */}
+      <h3
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "1.1875rem",
+          fontWeight: 400,
+          letterSpacing: "-0.015em",
+          color: "var(--text)",
+          lineHeight: 1.25,
+          marginBottom: "1rem",
+        }}
+      >
+        {title}
+      </h3>
+
       {/* Description */}
       <p
         style={{
           fontSize: "0.875rem",
           color: "var(--muted)",
-          lineHeight: 1.65,
-          marginBottom: "0.625rem",
+          lineHeight: 1.7,
+          marginBottom: "0.75rem",
         }}
       >
         {description}
@@ -102,8 +111,10 @@ export default function ProjectCard({
         style={{
           fontSize: "0.875rem",
           color: "var(--text)",
-          lineHeight: 1.65,
-          marginBottom: "1.25rem",
+          lineHeight: 1.7,
+          marginBottom: "1.75rem",
+          paddingTop: "0.75rem",
+          borderTop: "1px solid var(--border)",
         }}
       >
         {outcome}
@@ -117,12 +128,13 @@ export default function ProjectCard({
             style={{
               fontSize: "0.6875rem",
               fontWeight: 500,
-              letterSpacing: "0.06em",
+              letterSpacing: "0.07em",
               textTransform: "uppercase",
               color: "var(--muted)",
               background: "var(--surface)",
               padding: "0.25rem 0.625rem",
               borderRadius: "2px",
+              border: "1px solid var(--border)",
             }}
           >
             {t}

@@ -54,49 +54,65 @@ export default function FeaturedProjects() {
       style={{
         maxWidth: "1120px",
         margin: "0 auto",
-        padding: "6rem 2rem",
+        padding: "7rem 2rem",
+        borderTop: "1px solid var(--border)",
       }}
     >
       {/* Section label */}
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
-          gap: "1.5rem",
-          marginBottom: "3.5rem",
+          alignItems: "center",
+          gap: "1.25rem",
+          marginBottom: "4rem",
         }}
       >
         <span
           style={{
             fontSize: "0.6875rem",
-            letterSpacing: "0.12em",
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--muted)",
             fontWeight: 500,
+            whiteSpace: "nowrap",
           }}
         >
-          Selected work
+          Selected Work
         </span>
         <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+        <span
+          style={{
+            fontSize: "0.6875rem",
+            letterSpacing: "0.1em",
+            color: "var(--muted)",
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {projects.length} Projects
+        </span>
       </div>
 
+      {/* Grid */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 480px), 1fr))",
-          gap: "1px",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 460px), 1fr))",
           border: "1px solid var(--border)",
           borderRadius: "var(--radius)",
           overflow: "hidden",
-          background: "var(--border)",
         }}
       >
-        {projects.map((project) => (
+        {projects.map((project, i) => (
           <div
             key={project.title}
-            style={{ background: "var(--bg)" }}
+            style={{
+              borderRight: i % 2 === 0 ? "1px solid var(--border)" : "none",
+              borderBottom:
+                i < projects.length - 1 ? "1px solid var(--border)" : "none",
+            }}
           >
-            <ProjectCard {...project} />
+            <ProjectCard {...project} index={i + 1} />
           </div>
         ))}
       </div>

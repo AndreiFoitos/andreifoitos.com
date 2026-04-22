@@ -3,36 +3,38 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        paddingTop: "10rem",
-        paddingBottom: "7rem",
         maxWidth: "1120px",
         margin: "0 auto",
-        padding: "10rem 2rem 7rem",
+        padding: "14rem 2rem 8rem",
       }}
     >
-      {/* Status badge */}
+      {/* Status */}
       <div
         style={{
           display: "inline-flex",
           alignItems: "center",
-          gap: "0.5rem",
-          marginBottom: "2.5rem",
+          gap: "0.625rem",
+          marginBottom: "3rem",
+          padding: "0.375rem 0.875rem",
+          border: "1px solid var(--border)",
+          borderRadius: "2px",
         }}
       >
         <span
           style={{
-            display: "inline-block",
-            width: "7px",
-            height: "7px",
+            display: "block",
+            width: "6px",
+            height: "6px",
             borderRadius: "50%",
             background: "#22C55E",
+            flexShrink: 0,
           }}
         />
         <span
           style={{
-            fontSize: "0.75rem",
+            fontSize: "0.6875rem",
             color: "var(--muted)",
-            letterSpacing: "0.08em",
+            letterSpacing: "0.1em",
             textTransform: "uppercase",
             fontWeight: 500,
           }}
@@ -41,86 +43,92 @@ export default function Hero() {
         </span>
       </div>
 
-      {/* Main heading */}
+      {/* Heading */}
       <h1
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(3rem, 6vw, 5.5rem)",
+          fontSize: "clamp(3.5rem, 7vw, 6.25rem)",
           fontWeight: 400,
-          letterSpacing: "-0.03em",
-          lineHeight: 1.05,
+          letterSpacing: "-0.035em",
+          lineHeight: 1.02,
           color: "var(--text)",
-          maxWidth: "16ch",
+          maxWidth: "15ch",
+          marginBottom: "2.5rem",
         }}
       >
         Building intelligent{" "}
         <em style={{ fontStyle: "italic", color: "var(--muted)" }}>systems</em>
-        <br />
-        that work in practice.
+        {" "}that work in practice.
       </h1>
 
-      {/* Descriptor row */}
+      {/* Meta row */}
       <div
         style={{
-          marginTop: "2.5rem",
           display: "flex",
-          flexWrap: "wrap",
-          gap: "1.5rem",
-          alignItems: "center",
+          gap: "0",
+          marginBottom: "2rem",
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            alignItems: "center",
-          }}
-        >
-          {["AI Engineer", "Full-Stack Developer", "MSc AI · Groningen"].map(
-            (tag, i) => (
-              <span
-                key={tag}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  fontSize: "0.875rem",
-                  color: "var(--muted)",
-                }}
-              >
-                {i > 0 && (
-                  <span style={{ color: "var(--border)", fontSize: "1rem" }}>
-                    /
-                  </span>
-                )}
-                {tag}
-              </span>
-            )
-          )}
-        </div>
+        {[
+          { label: "Role", value: "AI Engineer & Full-Stack Developer" },
+          { label: "Location", value: "Groningen, Netherlands" },
+          { label: "Study", value: "MSc Artificial Intelligence" },
+        ].map((item, i) => (
+          <div
+            key={item.label}
+            style={{
+              flex: 1,
+              padding: "1.25rem 1.5rem",
+              borderLeft: i > 0 ? "1px solid var(--border)" : "none",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "0.6rem",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                fontWeight: 500,
+                marginBottom: "0.375rem",
+              }}
+            >
+              {item.label}
+            </div>
+            <div
+              style={{
+                fontSize: "0.875rem",
+                color: "var(--text)",
+                fontWeight: 400,
+              }}
+            >
+              {item.value}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Bio */}
       <p
         style={{
-          marginTop: "2rem",
           fontSize: "1.0625rem",
           color: "var(--muted)",
           lineHeight: 1.75,
-          maxWidth: "52ch",
+          maxWidth: "54ch",
+          marginBottom: "3rem",
         }}
       >
         MSc Artificial Intelligence student at the University of Groningen.
         Focused on machine learning, reinforcement learning, and shipping
-        real-world applications that make a difference.
+        real-world applications — from neonatal ICU dashboards to music AI.
       </p>
 
-      {/* CTA row */}
+      {/* CTAs */}
       <div
         style={{
-          marginTop: "3rem",
           display: "flex",
-          gap: "1rem",
+          gap: "0.875rem",
           flexWrap: "wrap",
         }}
       >
@@ -130,23 +138,24 @@ export default function Hero() {
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
-            padding: "0.75rem 1.5rem",
+            padding: "0.8125rem 1.75rem",
             background: "var(--text)",
             color: "var(--bg)",
             fontSize: "0.875rem",
             fontWeight: 500,
             borderRadius: "var(--radius)",
             transition: "opacity 200ms ease",
+            letterSpacing: "0.01em",
           }}
           onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLElement).style.opacity = "0.8")
+            ((e.currentTarget as HTMLElement).style.opacity = "0.78")
           }
           onMouseLeave={(e) =>
             ((e.currentTarget as HTMLElement).style.opacity = "1")
           }
         >
           View Work
-          <span aria-hidden>→</span>
+          <span aria-hidden style={{ fontFamily: "var(--font-sans)" }}>→</span>
         </a>
 
         <a
@@ -154,7 +163,7 @@ export default function Hero() {
           style={{
             display: "inline-flex",
             alignItems: "center",
-            padding: "0.75rem 1.5rem",
+            padding: "0.8125rem 1.75rem",
             background: "transparent",
             color: "var(--text)",
             fontSize: "0.875rem",
@@ -162,27 +171,22 @@ export default function Hero() {
             border: "1px solid var(--border)",
             borderRadius: "var(--radius)",
             transition: "border-color 200ms ease, background 200ms ease",
+            letterSpacing: "0.01em",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.background = "var(--surface)";
-            (e.currentTarget as HTMLElement).style.borderColor = "var(--muted)";
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "var(--surface)";
+            el.style.borderColor = "var(--muted)";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.background = "transparent";
-            (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "transparent";
+            el.style.borderColor = "var(--border)";
           }}
         >
           Get in touch
         </a>
       </div>
-
-      {/* Thin bottom rule */}
-      <div
-        style={{
-          marginTop: "6rem",
-          borderTop: "1px solid var(--border)",
-        }}
-      />
     </section>
   );
 }

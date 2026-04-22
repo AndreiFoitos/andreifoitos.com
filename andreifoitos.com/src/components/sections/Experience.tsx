@@ -19,6 +19,25 @@ const education = [
   },
 ];
 
+const engineering = [
+  {
+    role: "Full-Stack Developer",
+    company: "Neolook",
+    period: "2024",
+    description:
+      "Built a production dashboard for neonatal intensive care data. Worked in a collaborative, company-like environment. Application is currently deployed and used in clinical settings.",
+    tech: ["React", "Django", "REST", "JWT"],
+  },
+  {
+    role: "AI Research Projects",
+    company: "University of Groningen",
+    period: "2022 — Present",
+    description:
+      "Five completed research projects spanning machine learning, uncertainty estimation, reinforcement learning, and music AI. Average grade: 8.8 / 10.",
+    tech: ["PyTorch", "Python", "ML Research"],
+  },
+];
+
 export default function Experience() {
   return (
     <section
@@ -26,7 +45,7 @@ export default function Experience() {
       style={{
         maxWidth: "1120px",
         margin: "0 auto",
-        padding: "6rem 2rem",
+        padding: "7rem 2rem",
         borderTop: "1px solid var(--border)",
       }}
     >
@@ -34,18 +53,19 @@ export default function Experience() {
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
-          gap: "1.5rem",
-          marginBottom: "3.5rem",
+          alignItems: "center",
+          gap: "1.25rem",
+          marginBottom: "4rem",
         }}
       >
         <span
           style={{
             fontSize: "0.6875rem",
-            letterSpacing: "0.12em",
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--muted)",
             fontWeight: 500,
+            whiteSpace: "nowrap",
           }}
         >
           Experience & Education
@@ -57,107 +77,144 @@ export default function Experience() {
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
+          gap: "5rem",
         }}
       >
-        {/* Left — Project experience */}
+        {/* Engineering */}
         <div>
           <h3
             style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "1.375rem",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              color: "var(--text)",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              fontWeight: 500,
               marginBottom: "2rem",
             }}
           >
             Engineering
           </h3>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {engineering.map((item, i) => (
               <div
+                key={item.role}
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
-                  marginBottom: "0.5rem",
+                  paddingTop: i > 0 ? "2rem" : "0",
+                  paddingBottom: i < engineering.length - 1 ? "2rem" : "0",
+                  borderBottom:
+                    i < engineering.length - 1
+                      ? "1px solid var(--border)"
+                      : "none",
                 }}
               >
-                <span
+                <div
                   style={{
-                    fontSize: "0.9375rem",
-                    fontWeight: 500,
-                    color: "var(--text)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "baseline",
+                    marginBottom: "0.375rem",
+                    gap: "1rem",
                   }}
                 >
-                  Full-Stack Developer
-                </span>
-                <span style={{ fontSize: "0.8125rem", color: "var(--muted)" }}>
-                  Neolook
-                </span>
-              </div>
-              <p style={{ fontSize: "0.875rem", color: "var(--muted)", lineHeight: 1.65 }}>
-                Built a production dashboard for neonatal intensive care data.
-                Worked in a collaborative, company-like environment.
-                Application is currently deployed and used in clinical settings.
-              </p>
-            </div>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.125rem",
+                      fontWeight: 400,
+                      letterSpacing: "-0.015em",
+                      color: "var(--text)",
+                    }}
+                  >
+                    {item.role}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "var(--muted)",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {item.period}
+                  </span>
+                </div>
 
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <span
+                <p
                   style={{
-                    fontSize: "0.9375rem",
+                    fontSize: "0.8125rem",
+                    color: "var(--muted)",
+                    marginBottom: "0.25rem",
                     fontWeight: 500,
-                    color: "var(--text)",
+                    letterSpacing: "0.01em",
                   }}
                 >
-                  AI Research Projects
-                </span>
-                <span style={{ fontSize: "0.8125rem", color: "var(--muted)" }}>
-                  University of Groningen
-                </span>
+                  {item.company}
+                </p>
+
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--muted)",
+                    lineHeight: 1.7,
+                    marginTop: "0.75rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {item.description}
+                </p>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
+                  {item.tech.map((t) => (
+                    <span
+                      key={t}
+                      style={{
+                        fontSize: "0.6875rem",
+                        fontWeight: 500,
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "var(--muted)",
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
+                        padding: "0.2rem 0.5rem",
+                        borderRadius: "2px",
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p style={{ fontSize: "0.875rem", color: "var(--muted)", lineHeight: 1.65 }}>
-                Five completed research projects spanning machine learning,
-                uncertainty estimation, reinforcement learning, and music AI.
-                Average grade: 8.8 / 10.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Right — Education */}
+        {/* Education */}
         <div>
           <h3
             style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "1.375rem",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              color: "var(--text)",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              fontWeight: 500,
               marginBottom: "2rem",
             }}
           >
             Education
           </h3>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             {education.map((item, i) => (
               <div
                 key={item.degree}
                 style={{
-                  paddingBottom: i < education.length - 1 ? "1.75rem" : 0,
-                  marginBottom: i < education.length - 1 ? "1.75rem" : 0,
+                  paddingTop: i > 0 ? "1.75rem" : "0",
+                  paddingBottom: i < education.length - 1 ? "1.75rem" : "0",
                   borderBottom:
                     i < education.length - 1
                       ? "1px solid var(--border)"
@@ -170,14 +227,17 @@ export default function Experience() {
                     justifyContent: "space-between",
                     alignItems: "baseline",
                     gap: "1rem",
-                    marginBottom: "0.25rem",
+                    marginBottom: "0.3rem",
                   }}
                 >
                   <span
                     style={{
-                      fontSize: "0.9375rem",
-                      fontWeight: 500,
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.0625rem",
+                      fontWeight: 400,
+                      letterSpacing: "-0.015em",
                       color: "var(--text)",
+                      lineHeight: 1.3,
                     }}
                   >
                     {item.degree}
@@ -185,14 +245,14 @@ export default function Experience() {
                   <span
                     style={{
                       flexShrink: 0,
-                      fontSize: "0.8125rem",
+                      fontSize: "0.75rem",
                       color: "var(--muted)",
                     }}
                   >
                     {item.period}
                   </span>
                 </div>
-                <p style={{ fontSize: "0.875rem", color: "var(--muted)" }}>
+                <p style={{ fontSize: "0.8125rem", color: "var(--muted)" }}>
                   {item.institution} · {item.note}
                 </p>
               </div>

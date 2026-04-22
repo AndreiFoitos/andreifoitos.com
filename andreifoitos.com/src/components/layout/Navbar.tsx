@@ -13,7 +13,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,10 +26,14 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: scrolled ? "rgba(249,248,245,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
-        transition: "background 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease",
+        background: scrolled ? "rgba(248,247,244,0.94)" : "transparent",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid var(--border)"
+          : "1px solid transparent",
+        transition:
+          "background 350ms ease, border-color 350ms ease, backdrop-filter 350ms ease",
       }}
     >
       <div
@@ -48,11 +52,32 @@ export default function Navbar() {
           href="/"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "1.1rem",
+            fontSize: "1.0625rem",
             letterSpacing: "-0.02em",
             color: "var(--text)",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.625rem",
           }}
         >
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "28px",
+              height: "28px",
+              border: "1px solid var(--border)",
+              borderRadius: "2px",
+              fontSize: "0.7rem",
+              fontFamily: "var(--font-sans)",
+              fontWeight: 500,
+              letterSpacing: "0.04em",
+              color: "var(--muted)",
+            }}
+          >
+            AF
+          </span>
           Andrei Foitoș
         </a>
 
@@ -72,7 +97,7 @@ export default function Navbar() {
                 fontSize: "0.8125rem",
                 fontWeight: 400,
                 color: "var(--muted)",
-                letterSpacing: "0.03em",
+                letterSpacing: "0.06em",
                 textTransform: "uppercase",
                 transition: "color 200ms ease",
               }}
@@ -96,19 +121,20 @@ export default function Navbar() {
               fontWeight: 500,
               color: "var(--bg)",
               background: "var(--text)",
-              padding: "0.5rem 1.125rem",
+              padding: "0.45rem 1rem",
               borderRadius: "var(--radius)",
-              letterSpacing: "0.01em",
+              letterSpacing: "0.04em",
               transition: "opacity 200ms ease",
+              border: "1px solid var(--text)",
             }}
             onMouseEnter={(e) =>
-              ((e.target as HTMLElement).style.opacity = "0.8")
+              ((e.target as HTMLElement).style.opacity = "0.75")
             }
             onMouseLeave={(e) =>
               ((e.target as HTMLElement).style.opacity = "1")
             }
           >
-            CV
+            CV ↗
           </a>
         </nav>
       </div>
