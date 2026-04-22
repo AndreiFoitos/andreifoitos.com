@@ -52,41 +52,25 @@ export default function FeaturedProjects() {
     <section
       id="projects"
       style={{
-        maxWidth: "1120px",
+        maxWidth: "var(--max-w)",
         margin: "0 auto",
-        padding: "7rem 2rem",
+        padding: "8rem 2.5rem",
         borderTop: "1px solid var(--border)",
       }}
     >
       {/* Section label */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          marginBottom: "4rem",
-        }}
-      >
+      <div className="section-label">
+        <span className="section-label-text">Selected Work</span>
+        <div className="section-label-line" />
         <span
           style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.14em",
+            fontSize: "0.625rem",
+            letterSpacing: "0.12em",
+            color: "var(--muted-2)",
+            fontWeight: 500,
+            whiteSpace: "nowrap",
             textTransform: "uppercase",
-            color: "var(--muted)",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
-          }}
-        >
-          Selected Work
-        </span>
-        <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
-        <span
-          style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.1em",
-            color: "var(--muted)",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
+            fontFamily: "var(--font-sans)",
           }}
         >
           {projects.length} Projects
@@ -97,9 +81,9 @@ export default function FeaturedProjects() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 460px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 440px), 1fr))",
           border: "1px solid var(--border)",
-          borderRadius: "var(--radius)",
+          borderRadius: "var(--radius-lg)",
           overflow: "hidden",
         }}
       >
@@ -107,7 +91,8 @@ export default function FeaturedProjects() {
           <div
             key={project.title}
             style={{
-              borderRight: i % 2 === 0 ? "1px solid var(--border)" : "none",
+              borderRight:
+                i % 2 === 0 ? "1px solid var(--border)" : "none",
               borderBottom:
                 i < projects.length - 1 ? "1px solid var(--border)" : "none",
             }}

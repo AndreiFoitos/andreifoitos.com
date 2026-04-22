@@ -26,12 +26,13 @@ export default function ProjectCard({
     <Tag
       {...linkProps}
       style={{
-        display: "block",
-        padding: "2rem",
+        display: "flex",
+        flexDirection: "column",
+        padding: "2.25rem",
         background: "var(--bg)",
         cursor: link ? "pointer" : "default",
         textDecoration: "none",
-        transition: "background 200ms ease",
+        transition: "background 180ms ease",
         height: "100%",
       }}
       onMouseEnter={(e) => {
@@ -41,21 +42,22 @@ export default function ProjectCard({
         (e.currentTarget as HTMLElement).style.background = "var(--bg)";
       }}
     >
-      {/* Index + grade */}
+      {/* Header row */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "1.5rem",
+          marginBottom: "1.75rem",
         }}
       >
         <span
           style={{
-            fontSize: "0.6875rem",
-            fontWeight: 500,
-            color: "var(--muted)",
-            letterSpacing: "0.1em",
+            fontSize: "0.5625rem",
+            fontWeight: 600,
+            color: "var(--muted-2)",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
             fontFamily: "var(--font-sans)",
           }}
         >
@@ -65,13 +67,14 @@ export default function ProjectCard({
         {grade && (
           <span
             style={{
-              fontSize: "0.6875rem",
-              fontWeight: 500,
+              fontSize: "0.5625rem",
+              fontWeight: 600,
               color: "var(--muted)",
-              letterSpacing: "0.06em",
+              letterSpacing: "0.08em",
               border: "1px solid var(--border)",
-              padding: "0.2rem 0.5rem",
+              padding: "0.1875rem 0.5rem",
               borderRadius: "2px",
+              fontFamily: "var(--font-sans)",
             }}
           >
             {grade}
@@ -83,12 +86,12 @@ export default function ProjectCard({
       <h3
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "1.1875rem",
+          fontSize: "1.125rem",
           fontWeight: 400,
-          letterSpacing: "-0.015em",
+          letterSpacing: "-0.02em",
           color: "var(--text)",
-          lineHeight: 1.25,
-          marginBottom: "1rem",
+          lineHeight: 1.28,
+          marginBottom: "0.875rem",
         }}
       >
         {title}
@@ -97,10 +100,11 @@ export default function ProjectCard({
       {/* Description */}
       <p
         style={{
-          fontSize: "0.875rem",
+          fontSize: "0.8125rem",
           color: "var(--muted)",
-          lineHeight: 1.7,
-          marginBottom: "0.75rem",
+          lineHeight: 1.75,
+          marginBottom: "1rem",
+          fontFamily: "var(--font-sans)",
         }}
       >
         {description}
@@ -109,34 +113,29 @@ export default function ProjectCard({
       {/* Outcome */}
       <p
         style={{
-          fontSize: "0.875rem",
-          color: "var(--text)",
-          lineHeight: 1.7,
-          marginBottom: "1.75rem",
-          paddingTop: "0.75rem",
+          fontSize: "0.8125rem",
+          color: "var(--text-2)",
+          lineHeight: 1.75,
+          paddingTop: "1rem",
           borderTop: "1px solid var(--border)",
+          fontFamily: "var(--font-sans)",
+          flexGrow: 1,
         }}
       >
         {outcome}
       </p>
 
       {/* Tech pills */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0.3125rem",
+          marginTop: "1.75rem",
+        }}
+      >
         {tech.map((t) => (
-          <span
-            key={t}
-            style={{
-              fontSize: "0.6875rem",
-              fontWeight: 500,
-              letterSpacing: "0.07em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-              background: "var(--surface)",
-              padding: "0.25rem 0.625rem",
-              borderRadius: "2px",
-              border: "1px solid var(--border)",
-            }}
-          >
+          <span key={t} className="tag">
             {t}
           </span>
         ))}

@@ -1,7 +1,19 @@
 const links = [
-  { label: "Email", href: "mailto:andreifoitos4@gmail.com" },
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  {
+    label: "Email",
+    value: "andreifoitos4@gmail.com",
+    href: "mailto:andreifoitos4@gmail.com",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/andreifoitos",
+    href: "https://github.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/andreifoitos",
+    href: "https://linkedin.com",
+  },
 ];
 
 export default function Contact() {
@@ -9,34 +21,16 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        maxWidth: "1120px",
+        maxWidth: "var(--max-w)",
         margin: "0 auto",
-        padding: "7rem 2rem",
+        padding: "8rem 2.5rem",
         borderTop: "1px solid var(--border)",
       }}
     >
       {/* Section label */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          marginBottom: "4rem",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
-          }}
-        >
-          Contact
-        </span>
-        <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+      <div className="section-label">
+        <span className="section-label-text">Contact</span>
+        <div className="section-label-line" />
       </div>
 
       <div
@@ -44,20 +38,20 @@ export default function Contact() {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "5rem",
-          alignItems: "end",
+          alignItems: "start",
         }}
       >
-        {/* Left — heading + CTA */}
+        {/* Left */}
         <div>
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.5rem, 4.5vw, 4rem)",
+              fontSize: "clamp(2.25rem, 4vw, 3.5rem)",
               fontWeight: 400,
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.035em",
               color: "var(--text)",
               lineHeight: 1.06,
-              marginBottom: "2rem",
+              marginBottom: "1.75rem",
             }}
           >
             Let's build something{" "}
@@ -69,16 +63,17 @@ export default function Contact() {
 
           <p
             style={{
-              fontSize: "1rem",
+              fontSize: "0.9375rem",
               color: "var(--muted)",
-              lineHeight: 1.75,
-              maxWidth: "44ch",
+              lineHeight: 1.8,
+              maxWidth: "42ch",
+              fontFamily: "var(--font-sans)",
               marginBottom: "2.5rem",
             }}
           >
             Open to internships, research opportunities, and freelance projects.
-            I'm particularly interested in applied AI, human-centred systems,
-            and cross-disciplinary challenges.
+            Particularly interested in applied AI, human-centred systems, and
+            cross-disciplinary challenges.
           </p>
 
           <a
@@ -87,73 +82,96 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              padding: "0.875rem 1.875rem",
+              padding: "0.8125rem 1.75rem",
               background: "var(--text)",
               color: "var(--bg)",
-              fontSize: "0.875rem",
+              fontSize: "0.8125rem",
               fontWeight: 500,
               borderRadius: "var(--radius)",
-              transition: "opacity 200ms ease",
-              letterSpacing: "0.01em",
+              transition: "opacity 180ms ease",
+              letterSpacing: "0.02em",
+              fontFamily: "var(--font-sans)",
+              border: "1px solid var(--text)",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.opacity = "0.78")
+              ((e.currentTarget as HTMLElement).style.opacity = "0.72")
             }
             onMouseLeave={(e) =>
               ((e.currentTarget as HTMLElement).style.opacity = "1")
             }
           >
-            andreifoitos4@gmail.com
-            <span aria-hidden>↗</span>
+            Send an email
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4.5M10 2V7.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
         </div>
 
         {/* Right — links */}
-        <div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              overflow: "hidden",
-            }}
-          >
-            {links.map((link, i) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
+        <div
+          style={{
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-lg)",
+            overflow: "hidden",
+          }}
+        >
+          {links.map((link, i) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "5rem 1fr auto",
+                alignItems: "center",
+                gap: "1.25rem",
+                padding: "1.375rem 1.625rem",
+                borderBottom:
+                  i < links.length - 1 ? "1px solid var(--border)" : "none",
+                background: "var(--bg)",
+                color: "var(--text)",
+                textDecoration: "none",
+                transition: "background 180ms ease",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.background =
+                  "var(--surface)")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.background =
+                  "var(--bg)")
+              }
+            >
+              <span
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "1.25rem 1.5rem",
-                  borderBottom:
-                    i < links.length - 1 ? "1px solid var(--border)" : "none",
-                  background: "var(--bg)",
-                  color: "var(--text)",
-                  fontSize: "0.9375rem",
-                  fontWeight: 400,
-                  transition: "background 200ms ease",
+                  fontSize: "0.5625rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "var(--muted-2)",
+                  fontFamily: "var(--font-sans)",
                 }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background =
-                    "var(--surface)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background =
-                    "var(--bg)")
-                }
               >
-                <span>{link.label}</span>
-                <span style={{ color: "var(--muted)", fontSize: "0.875rem" }}>
-                  ↗
-                </span>
-              </a>
-            ))}
-          </div>
+                {link.label}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--text-2)",
+                  fontFamily: "var(--font-sans)",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {link.value}
+              </span>
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style={{ flexShrink: 0, color: "var(--muted-2)" }}>
+                <path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          ))}
         </div>
       </div>
     </section>

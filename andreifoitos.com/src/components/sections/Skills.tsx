@@ -39,43 +39,24 @@ export default function Skills() {
     <section
       id="skills"
       style={{
-        maxWidth: "1120px",
+        maxWidth: "var(--max-w)",
         margin: "0 auto",
-        padding: "7rem 2rem",
+        padding: "8rem 2.5rem",
         borderTop: "1px solid var(--border)",
       }}
     >
       {/* Section label */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          marginBottom: "4rem",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
-          }}
-        >
-          Skills
-        </span>
-        <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+      <div className="section-label">
+        <span className="section-label-text">Skills</span>
+        <div className="section-label-line" />
       </div>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
-          gap: "0",
+          gridTemplateColumns: "repeat(2, 1fr)",
           border: "1px solid var(--border)",
-          borderRadius: "var(--radius)",
+          borderRadius: "var(--radius-lg)",
           overflow: "hidden",
         }}
       >
@@ -83,40 +64,30 @@ export default function Skills() {
           <div
             key={group.category}
             style={{
-              padding: "2rem",
-              borderRight:
-                gi % 2 === 0 ? "1px solid var(--border)" : "none",
+              padding: "2.25rem",
+              borderRight: gi % 2 === 0 ? "1px solid var(--border)" : "none",
               borderBottom:
                 gi < skillGroups.length - 2 ? "1px solid var(--border)" : "none",
+              background: "var(--bg)",
             }}
           >
-            <h3
+            <p
               style={{
-                fontSize: "0.6rem",
-                letterSpacing: "0.14em",
+                fontSize: "0.5625rem",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 fontWeight: 500,
-                color: "var(--muted)",
+                color: "var(--muted-2)",
+                fontFamily: "var(--font-sans)",
                 marginBottom: "1.25rem",
               }}
             >
               {group.category}
-            </h3>
+            </p>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
               {group.items.map((skill) => (
-                <span
-                  key={skill}
-                  style={{
-                    fontSize: "0.8125rem",
-                    color: "var(--text)",
-                    background: "var(--surface)",
-                    border: "1px solid var(--border)",
-                    padding: "0.3125rem 0.75rem",
-                    borderRadius: "2px",
-                    transition: "border-color 150ms ease",
-                  }}
-                >
+                <span key={skill} className="tag">
                   {skill}
                 </span>
               ))}

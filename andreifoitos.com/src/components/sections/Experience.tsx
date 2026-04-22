@@ -13,7 +13,7 @@ const education = [
   },
   {
     institution: 'National College "Gheorghe Șincai"',
-    degree: "Mathematics & Informatics · Baccalaureate",
+    degree: "Mathematics & Informatics",
     period: "2018 — 2022",
     note: "Cluj-Napoca, Romania",
   },
@@ -38,39 +38,27 @@ const engineering = [
   },
 ];
 
+const rowStyle = (i: number, total: number): React.CSSProperties => ({
+  paddingTop: i > 0 ? "2rem" : "0",
+  paddingBottom: i < total - 1 ? "2rem" : "0",
+  borderBottom: i < total - 1 ? "1px solid var(--border)" : "none",
+});
+
 export default function Experience() {
   return (
     <section
       id="experience"
       style={{
-        maxWidth: "1120px",
+        maxWidth: "var(--max-w)",
         margin: "0 auto",
-        padding: "7rem 2rem",
+        padding: "8rem 2.5rem",
         borderTop: "1px solid var(--border)",
       }}
     >
       {/* Section label */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          marginBottom: "4rem",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
-          }}
-        >
-          Experience & Education
-        </span>
-        <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+      <div className="section-label">
+        <span className="section-label-text">Experience & Education</span>
+        <div className="section-label-line" />
       </div>
 
       <div
@@ -80,184 +68,155 @@ export default function Experience() {
           gap: "5rem",
         }}
       >
-        {/* Engineering */}
+        {/* Engineering column */}
         <div>
-          <h3
+          <p
             style={{
-              fontSize: "0.6875rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.5625rem",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "var(--muted)",
+              color: "var(--muted-2)",
               fontWeight: 500,
+              fontFamily: "var(--font-sans)",
               marginBottom: "2rem",
             }}
           >
             Engineering
-          </h3>
+          </p>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {engineering.map((item, i) => (
+          {engineering.map((item, i) => (
+            <div key={item.role} style={rowStyle(i, engineering.length)}>
               <div
-                key={item.role}
                 style={{
-                  paddingTop: i > 0 ? "2rem" : "0",
-                  paddingBottom: i < engineering.length - 1 ? "2rem" : "0",
-                  borderBottom:
-                    i < engineering.length - 1
-                      ? "1px solid var(--border)"
-                      : "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "1rem",
+                  marginBottom: "0.25rem",
                 }}
               >
-                <div
+                <span
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    marginBottom: "0.375rem",
-                    gap: "1rem",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.125rem",
+                    fontWeight: 400,
+                    letterSpacing: "-0.02em",
+                    color: "var(--text)",
+                    lineHeight: 1.3,
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.125rem",
-                      fontWeight: 400,
-                      letterSpacing: "-0.015em",
-                      color: "var(--text)",
-                    }}
-                  >
-                    {item.role}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "var(--muted)",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {item.period}
-                  </span>
-                </div>
-
-                <p
+                  {item.role}
+                </span>
+                <span
                   style={{
-                    fontSize: "0.8125rem",
-                    color: "var(--muted)",
-                    marginBottom: "0.25rem",
-                    fontWeight: 500,
-                    letterSpacing: "0.01em",
+                    fontSize: "0.6875rem",
+                    color: "var(--muted-2)",
+                    flexShrink: 0,
+                    fontFamily: "var(--font-sans)",
+                    letterSpacing: "0.02em",
                   }}
                 >
-                  {item.company}
-                </p>
-
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--muted)",
-                    lineHeight: 1.7,
-                    marginTop: "0.75rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {item.description}
-                </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
-                  {item.tech.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontSize: "0.6875rem",
-                        fontWeight: 500,
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        color: "var(--muted)",
-                        background: "var(--surface)",
-                        border: "1px solid var(--border)",
-                        padding: "0.2rem 0.5rem",
-                        borderRadius: "2px",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  {item.period}
+                </span>
               </div>
-            ))}
-          </div>
+
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "var(--muted)",
+                  fontWeight: 500,
+                  letterSpacing: "0.02em",
+                  fontFamily: "var(--font-sans)",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                {item.company}
+              </p>
+
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--muted)",
+                  lineHeight: 1.75,
+                  fontFamily: "var(--font-sans)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {item.description}
+              </p>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3125rem" }}>
+                {item.tech.map((t) => (
+                  <span key={t} className="tag">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Education */}
+        {/* Education column */}
         <div>
-          <h3
+          <p
             style={{
-              fontSize: "0.6875rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.5625rem",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "var(--muted)",
+              color: "var(--muted-2)",
               fontWeight: 500,
+              fontFamily: "var(--font-sans)",
               marginBottom: "2rem",
             }}
           >
             Education
-          </h3>
+          </p>
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {education.map((item, i) => (
+          {education.map((item, i) => (
+            <div key={item.degree} style={rowStyle(i, education.length)}>
               <div
-                key={item.degree}
                 style={{
-                  paddingTop: i > 0 ? "1.75rem" : "0",
-                  paddingBottom: i < education.length - 1 ? "1.75rem" : "0",
-                  borderBottom:
-                    i < education.length - 1
-                      ? "1px solid var(--border)"
-                      : "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "1rem",
+                  marginBottom: "0.25rem",
                 }}
               >
-                <div
+                <span
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    gap: "1rem",
-                    marginBottom: "0.3rem",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.0625rem",
+                    fontWeight: 400,
+                    letterSpacing: "-0.02em",
+                    color: "var(--text)",
+                    lineHeight: 1.3,
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.0625rem",
-                      fontWeight: 400,
-                      letterSpacing: "-0.015em",
-                      color: "var(--text)",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {item.degree}
-                  </span>
-                  <span
-                    style={{
-                      flexShrink: 0,
-                      fontSize: "0.75rem",
-                      color: "var(--muted)",
-                    }}
-                  >
-                    {item.period}
-                  </span>
-                </div>
-                <p style={{ fontSize: "0.8125rem", color: "var(--muted)" }}>
-                  {item.institution} · {item.note}
-                </p>
+                  {item.degree}
+                </span>
+                <span
+                  style={{
+                    fontSize: "0.6875rem",
+                    color: "var(--muted-2)",
+                    flexShrink: 0,
+                    fontFamily: "var(--font-sans)",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {item.period}
+                </span>
               </div>
-            ))}
-          </div>
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "var(--muted)",
+                  fontFamily: "var(--font-sans)",
+                  lineHeight: 1.5,
+                }}
+              >
+                {item.institution} · {item.note}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

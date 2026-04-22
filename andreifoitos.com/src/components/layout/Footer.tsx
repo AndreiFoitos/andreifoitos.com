@@ -5,14 +5,14 @@ export default function Footer() {
     <footer
       style={{
         borderTop: "1px solid var(--border)",
-        background: "var(--bg)",
+        background: "var(--bg-warm)",
       }}
     >
       <div
         style={{
-          maxWidth: "1120px",
+          maxWidth: "var(--max-w)",
           margin: "0 auto",
-          padding: "2rem",
+          padding: "1.75rem 2.5rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -22,14 +22,16 @@ export default function Footer() {
       >
         <span
           style={{
-            fontSize: "0.8125rem",
-            color: "var(--muted)",
+            fontSize: "0.75rem",
+            color: "var(--muted-2)",
+            fontFamily: "var(--font-sans)",
+            letterSpacing: "0.02em",
           }}
         >
           © {year} Andrei Foitoș
         </span>
 
-        <div style={{ display: "flex", gap: "1.5rem" }}>
+        <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
           {[
             { label: "Email", href: "mailto:andreifoitos4@gmail.com" },
             { label: "GitHub", href: "https://github.com" },
@@ -41,15 +43,17 @@ export default function Footer() {
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
               style={{
-                fontSize: "0.8125rem",
-                color: "var(--muted)",
-                transition: "color 200ms ease",
+                fontSize: "0.75rem",
+                color: "var(--muted-2)",
+                fontFamily: "var(--font-sans)",
+                letterSpacing: "0.02em",
+                transition: "color 180ms ease",
               }}
               onMouseEnter={(e) =>
                 ((e.target as HTMLElement).style.color = "var(--text)")
               }
               onMouseLeave={(e) =>
-                ((e.target as HTMLElement).style.color = "var(--muted)")
+                ((e.target as HTMLElement).style.color = "var(--muted-2)")
               }
             >
               {link.label}
