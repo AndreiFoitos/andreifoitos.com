@@ -15,7 +15,7 @@ const education = [
     institution: 'National College "Gheorghe Șincai"',
     degree: "Mathematics & Informatics",
     period: "2018 — 2022",
-    note: "Cluj-Napoca, Romania",
+    note: "Cluj-Napoca, Romania · Baccalaureate Diploma",
   },
 ];
 
@@ -25,7 +25,7 @@ const engineering = [
     company: "Neolook",
     period: "2024",
     description:
-      "Built a production dashboard for neonatal intensive care data. Worked in a collaborative, company-like environment. Application is currently deployed and used in clinical settings.",
+      "Built a production dashboard for neonatal intensive care data in a collaborative, company-like environment. The application is currently deployed and used in clinical settings.",
     tech: ["React", "Django", "REST", "JWT"],
   },
   {
@@ -38,47 +38,66 @@ const engineering = [
   },
 ];
 
+const work = [
+  {
+    role: "Bartender",
+    company: "Electric Castle Festival",
+    period: "2024",
+    description:
+      "Fast and friendly service in a high-pressure festival environment. Managed transactions, maintained hygiene standards, and kept bar operations smooth under peak load.",
+  },
+  {
+    role: "Event Helper",
+    company: "Electric Castle Festival",
+    period: "2023",
+    description:
+      "Assisted with setup, logistics, and vendor coordination at one of Romania's largest music festivals. Strengthened teamwork and communication under pressure.",
+  },
+  {
+    role: "Store Assistant",
+    company: "Auchan Retail Romania",
+    period: "2017 — 2018",
+    description:
+      "Part-time role stocking shelves, managing inventory, and assisting customers. Developed attention to detail and time management in a structured retail environment.",
+  },
+];
+
 const rowStyle = (i: number, total: number): React.CSSProperties => ({
-  paddingTop: i > 0 ? "2rem" : "0",
-  paddingBottom: i < total - 1 ? "2rem" : "0",
+  paddingTop: i > 0 ? "1.5rem" : "0",
+  paddingBottom: i < total - 1 ? "1.5rem" : "0",
   borderBottom: i < total - 1 ? "1px solid var(--border)" : "none",
 });
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      style={{
-        maxWidth: "var(--max-w)",
-        margin: "0 auto",
-        padding: "8rem 2.5rem",
-        borderTop: "1px solid var(--border)",
-      }}
-    >
-      {/* Section label */}
+    <div>
       <div className="section-label">
         <span className="section-label-text">Experience & Education</span>
         <div className="section-label-line" />
       </div>
 
+      {/* Engineering + Education */}
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "5rem",
+          gap: "4rem",
+          marginBottom: "4rem",
+          paddingBottom: "4rem",
+          borderBottom: "1px solid var(--border)",
         }}
       >
-        {/* Engineering column */}
+        {/* Engineering */}
         <div>
           <p
             style={{
-              fontSize: "0.5625rem",
+              fontSize: "0.5rem",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               color: "var(--muted-2)",
               fontWeight: 500,
               fontFamily: "var(--font-sans)",
-              marginBottom: "2rem",
+              marginBottom: "1.5rem",
             }}
           >
             Engineering
@@ -92,13 +111,13 @@ export default function Experience() {
                   justifyContent: "space-between",
                   alignItems: "baseline",
                   gap: "1rem",
-                  marginBottom: "0.25rem",
+                  marginBottom: "0.1875rem",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "1.125rem",
+                    fontSize: "1rem",
                     fontWeight: 400,
                     letterSpacing: "-0.02em",
                     color: "var(--text)",
@@ -109,7 +128,7 @@ export default function Experience() {
                 </span>
                 <span
                   style={{
-                    fontSize: "0.6875rem",
+                    fontSize: "0.625rem",
                     color: "var(--muted-2)",
                     flexShrink: 0,
                     fontFamily: "var(--font-sans)",
@@ -122,12 +141,12 @@ export default function Experience() {
 
               <p
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.6875rem",
                   color: "var(--muted)",
                   fontWeight: 500,
                   letterSpacing: "0.02em",
                   fontFamily: "var(--font-sans)",
-                  marginBottom: "0.75rem",
+                  marginBottom: "0.625rem",
                 }}
               >
                 {item.company}
@@ -135,17 +154,17 @@ export default function Experience() {
 
               <p
                 style={{
-                  fontSize: "0.8125rem",
+                  fontSize: "0.75rem",
                   color: "var(--muted)",
                   lineHeight: 1.75,
                   fontFamily: "var(--font-sans)",
-                  marginBottom: "1rem",
+                  marginBottom: "0.875rem",
                 }}
               >
                 {item.description}
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3125rem" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
                 {item.tech.map((t) => (
                   <span key={t} className="tag">{t}</span>
                 ))}
@@ -154,17 +173,17 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Education column */}
+        {/* Education */}
         <div>
           <p
             style={{
-              fontSize: "0.5625rem",
+              fontSize: "0.5rem",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               color: "var(--muted-2)",
               fontWeight: 500,
               fontFamily: "var(--font-sans)",
-              marginBottom: "2rem",
+              marginBottom: "1.5rem",
             }}
           >
             Education
@@ -178,13 +197,13 @@ export default function Experience() {
                   justifyContent: "space-between",
                   alignItems: "baseline",
                   gap: "1rem",
-                  marginBottom: "0.25rem",
+                  marginBottom: "0.1875rem",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "1.0625rem",
+                    fontSize: "0.9375rem",
                     fontWeight: 400,
                     letterSpacing: "-0.02em",
                     color: "var(--text)",
@@ -195,7 +214,7 @@ export default function Experience() {
                 </span>
                 <span
                   style={{
-                    fontSize: "0.6875rem",
+                    fontSize: "0.625rem",
                     color: "var(--muted-2)",
                     flexShrink: 0,
                     fontFamily: "var(--font-sans)",
@@ -207,7 +226,7 @@ export default function Experience() {
               </div>
               <p
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.6875rem",
                   color: "var(--muted)",
                   fontFamily: "var(--font-sans)",
                   lineHeight: 1.5,
@@ -219,6 +238,86 @@ export default function Experience() {
           ))}
         </div>
       </div>
-    </section>
+
+      {/* Work experience */}
+      <div className="section-label" style={{ marginBottom: "2rem" }}>
+        <span className="section-label-text">Other Work</span>
+        <div className="section-label-line" />
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius-lg)",
+          overflow: "hidden",
+        }}
+      >
+        {work.map((item, i) => (
+          <div
+            key={item.role + item.period}
+            style={{
+              padding: "1.5rem",
+              borderRight: i < work.length - 1 ? "1px solid var(--border)" : "none",
+              background: "var(--bg)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                marginBottom: "0.25rem",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "0.9375rem",
+                  color: "var(--text)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {item.role}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.5625rem",
+                  color: "var(--muted-2)",
+                  fontFamily: "var(--font-sans)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {item.period}
+              </span>
+            </div>
+            <p
+              style={{
+                fontSize: "0.625rem",
+                color: "var(--muted)",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                fontFamily: "var(--font-sans)",
+                marginBottom: "0.625rem",
+                textTransform: "uppercase",
+              }}
+            >
+              {item.company}
+            </p>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                color: "var(--muted)",
+                lineHeight: 1.7,
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

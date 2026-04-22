@@ -1,5 +1,7 @@
 import "./globals.css";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -30,14 +32,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body
-        className="font-sans antialiased"
         style={{
           fontFamily: "var(--font-sans), system-ui, sans-serif",
           background: "var(--bg)",
           color: "var(--text)",
         }}
       >
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
