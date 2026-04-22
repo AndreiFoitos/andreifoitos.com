@@ -1,5 +1,13 @@
-import Hero from "@/components/sections/Hero";
+import FeaturedProjects from "@/components/sections/FeaturedProjects";
 
-export default function Home() {
-  return <Hero />;
+export const metadata = {
+  title: "Work — Andrei Foitoș",
+};
+
+export default function WorkPage() {
+  return (
+    <div className="page-wrap">
+      <FeaturedProjects />
+    </div>
+  );
 }

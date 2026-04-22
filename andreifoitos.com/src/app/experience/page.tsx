@@ -1,9 +1,15 @@
-import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import Experience from "@/components/sections/Experience";
+import Achievements from "@/components/sections/Achievements";
 
 export const metadata = {
-  title: "Work — Andrei Foitoș",
+  title: "Experience — Andrei Foitoș",
 };
 
-export default function WorkPage() {
-  return <div className="page-wrap"><FeaturedProjects /></div>;
+export default function ExperiencePage() {
+  return (
+    <div className="page-wrap">
+      <Experience />
+      <Achievements />
+    </div>
+  );
 }

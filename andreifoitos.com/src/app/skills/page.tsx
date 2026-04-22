@@ -1,15 +1,13 @@
-import Experience from "@/components/sections/Experience";
-import Achievements from "@/components/sections/Achievements";
+import Skills from "@/components/sections/Skills";
 
 export const metadata = {
-  title: "Experience — Andrei Foitoș",
+  title: "Skills — Andrei Foitoș",
 };
 
-export default function ExperiencePage() {
+export default function SkillsPage() {
   return (
     <div className="page-wrap">
-      <Experience />
-      <Achievements />
+      <Skills />
     </div>
   );
 }
