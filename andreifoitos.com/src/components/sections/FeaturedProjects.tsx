@@ -56,3 +56,46 @@ export const projects: Project[] = [
     grade: "8 / 10",
   },
 ];
+
+import ProjectCard from "@/components/ui/ProjectCard";
+
+export default function FeaturedProjects() {
+  return (
+    <div>
+      <div className="section-label">
+        <span className="section-label-text">Work</span>
+        <div className="section-label-line" />
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius-lg)",
+          overflow: "hidden",
+        }}
+      >
+        {projects.map((project, i) => (
+          <div
+            key={project.title}
+            style={{
+              borderRight: i % 3 < 2 ? "1px solid var(--border)" : "none",
+              borderBottom: i < projects.length - (projects.length % 3 || 3) ? "1px solid var(--border)" : "none",
+            }}
+          >
+            <ProjectCard
+              index={i + 1}
+              title={project.title}
+              description={project.description}
+              outcome={project.outcome}
+              tech={project.tech}
+              grade={project.grade}
+              link={project.link}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

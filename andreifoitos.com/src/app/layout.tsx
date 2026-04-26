@@ -19,9 +19,7 @@ const sans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Andrei Foitoș — AI Engineer & Full-Stack Developer",
-  description:
-    "MSc Artificial Intelligence student at the University of Groningen. Building intelligent systems that work in practice.",
+  title: "Andrei Foitoș — AI Engineer & Full-Stack Developer"
 };
 
 export default function RootLayout({
