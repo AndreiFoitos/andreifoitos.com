@@ -1,3 +1,5 @@
+"use client";
+
 export type Build = {
   title: string;
   tagline: string;
@@ -7,16 +9,23 @@ export type Build = {
   link?: string;
 };
 
-// Add your builds here as they develop
 export const builds: Build[] = [
-  // Example shape — replace with your real projects:
-  // {
-  //   title: "App Name",
-  //   tagline: "One-line pitch",
-  //   description: "What it does, who it's for, what problem it solves.",
-  //   status: "in-development",
-  //   tech: ["Next.js", "Python"],
-  // },
+  {
+    title: "Yardly",
+    tagline: "Booking.com for luxury backyard projects.",
+    description:
+      "Homeowners upload their address, define their yard on a satellite map, and get an instant AI-assisted pool or outdoor kitchen layout — dimensions, cost estimate, permit checklist included. The real product is on the other side: a qualified lead marketplace where builders pay per warm, budget-ready introduction. Targeting the European market where this category is still wide open.",
+    status: "early-prototype",
+    tech: ["Next.js", "Python", "Turf.js", "Google Maps API", "Three.js"],
+  },
+  {
+    title: "Mise",
+    tagline: "AI stock brain for small HoReCa.",
+    description:
+      "A food waste and inventory management tool built for restaurants, cafés, and small catering businesses in Romania. Every sale automatically deducts ingredients from stock using a built-in recipe engine. The AI layer watches consumption trends and tells you exactly what to order, how much, and when — before you run out or over-buy. Comes with a sales dashboard, waste tracking, and supplier cost analysis. Built for owners who run the place themselves and can't afford a waste consultant.",
+    status: "in-development",
+    tech: ["Next.js", "Django", "PostgreSQL", "Python", "AI/ML"],
+  },
 ];
 
 const statusLabel: Record<Build["status"], string> = {

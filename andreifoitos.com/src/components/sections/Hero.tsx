@@ -79,7 +79,7 @@ export default function Hero() {
           lineHeight: 1.4,
         }}
       >
-        AI researcher who ships.
+        AI Engineer and Full-Stack Developer.
       </p>
 
       {/* Meta strip */}
