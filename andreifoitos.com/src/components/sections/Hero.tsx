@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section
@@ -45,11 +47,11 @@ export default function Hero() {
             fontFamily: "var(--font-sans)",
           }}
         >
-          Available for opportunities
+          Open to research & engineering roles
         </span>
       </div>
 
-      {/* Heading */}
+      {/* Name + identity */}
       <h1
         style={{
           fontFamily: "var(--font-display)",
@@ -58,16 +60,27 @@ export default function Hero() {
           letterSpacing: "-0.04em",
           lineHeight: 1.02,
           color: "var(--text)",
-          maxWidth: "16ch",
-          marginBottom: "3rem",
+          marginBottom: "2rem",
         }}
       >
-        Building{" "}
-        <em style={{ fontStyle: "italic", color: "var(--muted)" }}>
-          intelligent
-        </em>{" "}
-        systems that work in practice.
+        Andrei Foitoș
       </h1>
+
+      {/* Role line */}
+      <p
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(1.125rem, 2vw, 1.5rem)",
+          fontWeight: 400,
+          letterSpacing: "-0.02em",
+          color: "var(--muted)",
+          fontStyle: "italic",
+          marginBottom: "3rem",
+          lineHeight: 1.4,
+        }}
+      >
+        AI researcher who ships.
+      </p>
 
       {/* Meta strip */}
       <div
@@ -81,9 +94,9 @@ export default function Hero() {
         }}
       >
         {[
-          { label: "Role", value: "AI Engineer & Full-Stack Developer" },
+          { label: "Focus", value: "ML, Reinforcement Learning, Uncertainty" },
           { label: "Location", value: "Groningen, Netherlands" },
-          { label: "Study", value: "MSc Artificial Intelligence" },
+          { label: "Currently", value: "MSc AI @ University of Groningen" },
         ].map((item, i) => (
           <div
             key={item.label}
@@ -127,20 +140,22 @@ export default function Hero() {
           fontSize: "1.0625rem",
           color: "var(--muted)",
           lineHeight: 1.8,
-          maxWidth: "52ch",
+          maxWidth: "54ch",
           marginBottom: "2.75rem",
           fontFamily: "var(--font-sans)",
         }}
       >
-        MSc Artificial Intelligence student at the University of Groningen.
-        Focused on machine learning, reinforcement learning, and shipping
-        real-world applications — from neonatal ICU dashboards to music AI.
+        I study AI at Groningen and build things with it — from neonatal ICU
+        dashboards to reinforcement learning systems. I'm also a three-time
+        World Karate Champion, which taught me something research later
+        confirmed: the gap between theory and performance is where the real
+        work happens.
       </p>
 
       {/* CTAs */}
       <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-        <a
-          href="#projects"
+        <Link
+          href="/work"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -155,6 +170,7 @@ export default function Hero() {
             transition: "opacity 180ms ease",
             letterSpacing: "0.02em",
             fontFamily: "var(--font-sans)",
+            textDecoration: "none",
           }}
           onMouseEnter={(e) =>
             ((e.currentTarget as HTMLElement).style.opacity = "0.72")
@@ -163,11 +179,44 @@ export default function Hero() {
             ((e.currentTarget as HTMLElement).style.opacity = "1")
           }
         >
-          View Work
+          View Research & Work
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </a>
+        </Link>
+
+        <Link
+          href="/builds"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.75rem 1.625rem",
+            background: "transparent",
+            color: "var(--text-2)",
+            fontSize: "0.8125rem",
+            fontWeight: 400,
+            border: "1px solid var(--border-2)",
+            borderRadius: "var(--radius)",
+            transition: "background 180ms ease, border-color 180ms ease",
+            letterSpacing: "0.02em",
+            fontFamily: "var(--font-sans)",
+            textDecoration: "none",
+          }}
+          onMouseEnter={(e) => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "var(--surface)";
+          }}
+          onMouseLeave={(e) => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "transparent";
+          }}
+        >
+          What I'm building
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </Link>
 
         <a
           href="mailto:andreifoitos4@gmail.com"
@@ -181,19 +230,15 @@ export default function Hero() {
             fontWeight: 400,
             border: "1px solid var(--border-2)",
             borderRadius: "var(--radius)",
-            transition: "background 180ms ease, border-color 180ms ease",
+            transition: "background 180ms ease",
             letterSpacing: "0.02em",
             fontFamily: "var(--font-sans)",
           }}
           onMouseEnter={(e) => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.background = "var(--surface)";
-            el.style.borderColor = "var(--border-2)";
+            (e.currentTarget as HTMLElement).style.background = "var(--surface)";
           }}
           onMouseLeave={(e) => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.background = "transparent";
-            el.style.borderColor = "var(--border-2)";
+            (e.currentTarget as HTMLElement).style.background = "transparent";
           }}
         >
           Get in touch

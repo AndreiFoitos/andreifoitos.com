@@ -1,39 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const links = [
-  { label: "Work", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "Lab", href: "/builds" },
+  { label: "Experience", href: "/experience" },
+  { label: "Skills", href: "/skills" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const ids = links.map((l) => l.href.replace("#", ""));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -64,7 +50,7 @@ export default function Navbar() {
         }}
       >
         {/* Wordmark */}
-        <a
+        <Link
           href="/"
           style={{
             display: "flex",
@@ -103,14 +89,14 @@ export default function Navbar() {
           >
             Andrei Foitoș
           </span>
-        </a>
+        </Link>
 
         {/* Nav */}
         <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
           {links.map((link) => {
-            const isActive = activeSection === link.href.replace("#", "");
+            const isActive = pathname === link.href;
             return (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 style={{
@@ -124,20 +110,11 @@ export default function Navbar() {
                   background: isActive ? "var(--surface)" : "transparent",
                   border: isActive ? "1px solid var(--border)" : "1px solid transparent",
                   transition: "color 200ms ease, background 200ms ease, border-color 200ms ease",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    (e.currentTarget as HTMLElement).style.color = "var(--text)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    (e.currentTarget as HTMLElement).style.color = "var(--muted)";
-                  }
+                  textDecoration: "none",
                 }}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
 
