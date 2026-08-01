@@ -1,5 +1,10 @@
 const achievements = [
   {
+    title: "Peer-Reviewed Publication",
+    years: "2026",
+    detail: "ANNPR 2026 · IAPR Workshop · Oral · Springer LNAI",
+  },
+  {
     title: "World Karate Champion",
     years: "2020 · 2021 · 2023",
     detail: "World Karate Federation",

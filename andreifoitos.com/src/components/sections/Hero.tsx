@@ -145,11 +145,11 @@ export default function Hero() {
           fontFamily: "var(--font-sans)",
         }}
       >
-        I study AI at Groningen and build things with it — from neonatal ICU
-        dashboards to reinforcement learning systems. I'm also a three-time
-        World Karate Champion, which taught me something research later
-        confirmed: the gap between theory and performance is where the real
-        work happens.
+        I study AI at Groningen and ship real software with it — from a
+        neonatal-ICU dashboard and a production CRM to a peer-reviewed paper on
+        uncertainty in deep learning. I'm also a three-time World Karate
+        Champion, which taught me something research later confirmed: the gap
+        between theory and performance is where the real work happens.
       </p>
 
       {/* CTAs */}

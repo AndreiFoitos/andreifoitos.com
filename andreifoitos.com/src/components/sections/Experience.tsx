@@ -21,6 +21,14 @@ const education = [
 
 const engineering = [
   {
+    role: "Freelance Full-Stack Developer",
+    company: "Independent",
+    period: "2025 — Present",
+    description:
+      "Design, build, and ship production web and mobile software — on commission and as independent products. Recent work includes a CRM deployed for a gas-installation company, a consumer web app, and a cross-platform fitness app, each owned end to end from architecture to deployment.",
+    tech: ["Next.js", "FastAPI", "React Native", "PostgreSQL"],
+  },
+  {
     role: "Full-Stack Developer",
     company: "Neolook",
     period: "2024",
@@ -33,7 +41,7 @@ const engineering = [
     company: "University of Groningen",
     period: "2022 — Present",
     description:
-      "Five completed research projects spanning machine learning, uncertainty estimation, reinforcement learning, and music AI. Average grade: 8.8 / 10.",
+      "Five completed research projects spanning machine learning, uncertainty estimation, reinforcement learning, and music AI — one accepted for oral presentation at ANNPR 2026 (Springer LNAI). Average grade: 8.8 / 10.",
     tech: ["PyTorch", "Python", "ML Research"],
   },
 ];

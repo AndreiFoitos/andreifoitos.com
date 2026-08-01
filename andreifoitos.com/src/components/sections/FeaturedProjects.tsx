@@ -20,6 +20,14 @@ export const projects: Project[] = [
     tech: ["React", "Django", "REST", "JWT"],
   },
   {
+    title: "Epic Serv CRM",
+    description:
+      "Internal CRM for a gas-installation company — a document-per-job workflow with file management, role-based access, and cloud document storage. Designed, built, and deployed end to end.",
+    outcome:
+      "Shipped to production and in daily use. FastAPI + Next.js, Supabase, Google Drive integration, JWT authentication.",
+    tech: ["Next.js", "FastAPI", "PostgreSQL", "Google Drive API"],
+  },
+  {
     title: "O₃ & NO₂ Air Quality Forecasting",
     description:
       "Forecasting model predicting ozone and nitrogen dioxide concentrations three days ahead, with a user-facing interface based on WHO guidelines.",
@@ -29,12 +37,12 @@ export const projects: Project[] = [
     grade: "9.5 / 10",
   },
   {
-    title: "Aleatoric vs Epistemic Uncertainty in Regression",
+    title: "Disentangling Uncertainty in Facial Age Estimation",
     description:
-      "Bachelor's thesis investigating uncertainty types in face-age recognition using DenseNet121, disentangling what the model doesn't know from inherent data noise.",
+      "“Disentangling Model and Human Data Uncertainty in Apparent Facial Age Estimation” — with Ivo de Jong and Matias Valdenegro-Toro (University of Groningen). Trains Bayesian neural networks (MC-DropConnect, Flipout, Deep Ensembles) to separate model uncertainty from human-label noise, and probes it under distribution shift.",
     outcome:
-      "Published to the University of Groningen repository. Clean separation of uncertainty sources in a real regression task.",
-    tech: ["PyTorch", "DenseNet121", "Deep Learning"],
+      "Accepted for oral presentation at ANNPR 2026 (IAPR TC3 Workshop), to appear in the Springer LNAI proceedings. Bachelor's thesis graded 9/10.",
+    tech: ["PyTorch", "DenseNet121", "Bayesian Neural Networks"],
     grade: "9 / 10",
   },
   {

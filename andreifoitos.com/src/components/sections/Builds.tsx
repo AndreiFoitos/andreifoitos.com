@@ -11,6 +11,23 @@ export type Build = {
 
 export const builds: Build[] = [
   {
+    title: "Povestea în Cifre",
+    tagline: "Your chat history, turned into a keepsake.",
+    description:
+      "A Romanian-language web app: upload an exported WhatsApp or Instagram conversation and get back a beautifully rendered stats poster — message heatmaps, most-used words, and relationship highlights — generated server-side as a high-resolution image. Built to be sold as a personalised gift, with the full render pipeline running on serverless.",
+    status: "live",
+    tech: ["Next.js", "Serverless", "resvg", "Supabase"],
+    link: "https://povesteaincifre.vercel.app/",
+  },
+  {
+    title: "GainRace",
+    tagline: "A training & nutrition tracker for people who lift.",
+    description:
+      "A cross-platform mobile app for tracking training, nutrition, and recovery — camera-based calorie logging, workout tracking, caffeine and energy curves, and progress insights. Built end to end with React Native and a Python backend, and prepared for App Store and Google Play release.",
+    status: "in-development",
+    tech: ["React Native", "Expo", "FastAPI", "Railway"],
+  },
+  {
     title: "Yardly",
     tagline: "Booking.com for luxury backyard projects.",
     description:
